@@ -9,46 +9,46 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="Register"
         android:textSize="32sp"
         android:textStyle="bold"
         android:layout_marginBottom="30dp"/>
 
     <EditText
-        android:id="@+id/etUsername"
+        android:id="@+id/etRegUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Username"
         android:inputType="text"/>
 
     <EditText
-        android:id="@+id/etPassword"
+        android:id="@+id/etRegPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
         android:inputType="textPassword"
         android:layout_marginTop="10dp"/>
 
-    <CheckBox
-        android:id="@+id/cbRememberMe"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/etRegConfirmPassword"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Remember Me"
-        android:layout_gravity="start"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
         android:layout_marginTop="10dp"/>
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="Register"
         android:layout_marginTop="20dp"/>
 
     <TextView
-        android:id="@+id/tvRegister"
+        android:id="@+id/tvBackToLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Don't have an account? Register here"
+        android:text="Already have an account? Login here"
         android:textColor="#0000FF"
         android:layout_marginTop="20dp"/>
 

@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace = "edu.cit.quezon.myapplication"
-    compileSdk = 36
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "edu.cit.quezon.myapplication"
         minSdk = 24
-        targetSdk = 36
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
