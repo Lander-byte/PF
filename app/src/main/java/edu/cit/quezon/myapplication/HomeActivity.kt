@@ -17,7 +17,7 @@ class HomeActivity : AppCompatActivity() {
 
         // Retrieve data passed from Intent
         val username = intent.getStringExtra("logged_in_user") ?: "User"
-        tvUserDetail.text = "Logged in as: $username"
+        tvUserDetail.text = getString(R.string.logged_in_as, username)
 
         btnLogout.setOnClickListener {
             // Logout and return to Login screen

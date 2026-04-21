@@ -1,5 +1,6 @@
 package edu.cit.quezon.myapplication
 
+import android.app.Activity
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
@@ -17,6 +19,20 @@ class MainActivity : AppCompatActivity() {
     private lateinit var cbRememberMe: CheckBox
     private lateinit var tvRegister: TextView
     private lateinit var sharedPreferences: SharedPreferences
+
+    private val registerLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val data = result.data
+            val registeredUser = data?.getStringExtra("reg_user")
+            val registeredPass = data?.getStringExtra("reg_pass")
+
+            if (registeredUser != null) {
+                etUsername.setText(registeredUser)
+                etPassword.setText(registeredPass)
+                Toast.makeText(this, "Details updated from registration", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +46,6 @@ class MainActivity : AppCompatActivity() {
         cbRememberMe = findViewById(R.id.cbRememberMe)
         tvRegister = findViewById(R.id.tvRegister)
 
-        // Remember Me logic
         val isRemembered = sharedPreferences.getBoolean("remember_me", false)
         if (isRemembered) {
             etUsername.setText(sharedPreferences.getString("saved_username", ""))
@@ -41,7 +56,7 @@ class MainActivity : AppCompatActivity() {
 
         tvRegister.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
+            registerLauncher.launch(intent)
         }
     }
 

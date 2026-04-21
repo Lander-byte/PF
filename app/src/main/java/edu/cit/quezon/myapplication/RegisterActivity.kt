@@ -1,5 +1,6 @@
 package edu.cit.quezon.myapplication
 
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
@@ -56,9 +57,15 @@ class RegisterActivity : AppCompatActivity() {
         val editor = sharedPreferences.edit()
         editor.putString("registered_user", username)
         editor.putString("registered_pass", password)
-        editor.apply()
+        editor.commit()
 
         Toast.makeText(this, "Registration Successful!", Toast.LENGTH_SHORT).show()
+
+        // Pass registered data back to MainActivity
+        val resultIntent = Intent()
+        resultIntent.putExtra("reg_user", username)
+        resultIntent.putExtra("reg_pass", password)
+        setResult(RESULT_OK, resultIntent)
         finish()
     }
 }

@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="login_title">Login</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="login_button">Login</string>
+    <string name="register_link">Don\'t have an account? Register here</string>
+
+    <string name="register_title">Register</string>
+    <string name="confirm_password_hint">Confirm Password</string>
+    <string name="register_button">Register</string>
+    <string name="login_link">Already have an account? Login here</string>
+
+    <string name="home_title">Home</string>
+    <string name="welcome_message">Welcome!</string>
+    <string name="logged_in_as">Logged in as: %1$s</string>
+    <string name="logout_button">Logout</string>
 </resources>
